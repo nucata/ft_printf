@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:10:20 by rdragan           #+#    #+#             */
-/*   Updated: 2022/12/05 20:02:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2022/12/05 20:13:29 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	get_param( char format_specifier, va_list args)
 		return (ft_putchar('%'));
 	if (format_specifier == 's')
 		return (ft_putstr(va_arg(args, char *)));
+	if (format_specifier == 'c')
+		return (ft_putchar(va_arg(args, int)));
 	return (0);
 }
 
