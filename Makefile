@@ -2,7 +2,11 @@ NAME=libftprintf.a
 CFLAGS= -Wall -Wextra -Werror
 SRC=ft_printf.c\
 	ft_putchar.c\
-	ft_putstr.c
+	ft_putstr.c\
+	ft_putnbr.c\
+	ft_puthex.c\
+	ft_putnbr_unsigned.c
+
 OBJ=$(SRC:%.c=%.o)
 
 all: $(NAME)
