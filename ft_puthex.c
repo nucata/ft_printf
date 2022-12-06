@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:53:55 by rdragan           #+#    #+#             */
-/*   Updated: 2022/12/06 13:07:59 by rdragan          ###   ########.fr       */
+/*   Updated: 2022/12/06 14:43:53 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,42 @@ static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (slen);
 }
 
-static int	get_len(int n)
+static int	get_len(unsigned int n)
 {
 	int	len;
 
 	len = 0;
-	if (n <= 0)
+	if (n == 0)
 		len++;
 	while (n && ++len)
 		n /= 16;
 	return (len);
 }
 
-static void	print_hex(int n)
+static void	print_hex(unsigned int n, int arg)
 {
 	char	hex_base[16];
 
-	ft_strlcpy(hex_base, "0123456789abcdef", 17);
-	if (n < 16)
+	if (arg == 1)
+		ft_strlcpy(hex_base, "0123456789abcdef", 17);
+	else if (arg == 0)
+		ft_strlcpy(hex_base, "0123456789ABCDEF", 17);
+	if (n == 0)
 	{
-		ft_putchar(hex_base[n % 16]);
+		ft_putchar('0');
+		return ;
 	}
+	if (n < 16)
+		ft_putchar(hex_base[n % 16]);
 	else
 	{
-		ft_putnbr(n / 16);
+		ft_puthex(n / 16, arg);
 		ft_putchar(hex_base[n % 16]);
 	}
 }
 
-unsigned int	ft_puthex(int n)
+int	ft_puthex(unsigned int n, int arg)
 {
-	print_hex(n);
+	print_hex(n, arg);
 	return (get_len(n));
 }
