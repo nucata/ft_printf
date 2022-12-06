@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 11:53:55 by rdragan           #+#    #+#             */
-/*   Updated: 2022/12/06 15:13:45 by rdragan          ###   ########.fr       */
+/*   Created: 2022/12/06 14:48:41 by rdragan           #+#    #+#             */
+/*   Updated: 2022/12/06 15:30:26 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	get_len(unsigned int n)
+static int	get_len(unsigned long long n)
 {
 	int	len;
 
@@ -24,14 +24,11 @@ static int	get_len(unsigned int n)
 	return (len);
 }
 
-static void	print_hex(unsigned int n, int arg)
+static void	put_hex(unsigned long long n)
 {
 	char	hex_base[16];
 
-	if (arg == 1)
-		ft_strlcpy(hex_base, "0123456789abcdef", 17);
-	else if (arg == 0)
-		ft_strlcpy(hex_base, "0123456789ABCDEF", 17);
+	ft_strlcpy(hex_base, "0123456789abcdef", 17);
 	if (n == 0)
 	{
 		ft_putchar('0');
@@ -41,13 +38,14 @@ static void	print_hex(unsigned int n, int arg)
 		ft_putchar(hex_base[n % 16]);
 	else
 	{
-		ft_puthex(n / 16, arg);
+		put_hex(n / 16);
 		ft_putchar(hex_base[n % 16]);
 	}
 }
 
-int	ft_puthex(unsigned int n, int arg)
+int	ft_putaddr(unsigned long long addr)
 {
-	print_hex(n, arg);
-	return (get_len(n));
+	ft_putstr("0x");
+	put_hex(addr);
+	return (get_len(addr) + 2);
 }

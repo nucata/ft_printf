@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:13:07 by rdragan           #+#    #+#             */
-/*   Updated: 2022/12/06 14:43:11 by rdragan          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:12:39 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,7 @@ int					ft_putstr(char *str);
 int					ft_putnbr(int n);
 int					ft_puthex(unsigned int n, int arg);
 int					ft_putnbr_unsigned(unsigned int n);
+int					ft_putaddr(unsigned long long addr);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
+
 #endif

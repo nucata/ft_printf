@@ -5,7 +5,9 @@ SRC=ft_printf.c\
 	ft_putstr.c\
 	ft_putnbr.c\
 	ft_puthex.c\
-	ft_putnbr_unsigned.c
+	ft_putnbr_unsigned.c\
+	ft_putaddr.c\
+	ft_strlcpy.c
 
 OBJ=$(SRC:%.c=%.o)
 

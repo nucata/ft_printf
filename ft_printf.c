@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:10:20 by rdragan           #+#    #+#             */
-/*   Updated: 2022/12/06 14:42:58 by rdragan          ###   ########.fr       */
+/*   Updated: 2022/12/06 14:59:47 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	get_param( char format_specifier, va_list args)
 		return (ft_puthex(va_arg(args, unsigned int), 1));
 	if (format_specifier == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), 0));
+	if (format_specifier == 'p')
+		return (ft_putaddr(va_arg(args, unsigned long long)));
 	return (0);
 }
 
